@@ -27,6 +27,21 @@ pipeline {
                 }
             }
         }
+         stage('Build') {
+            steps {
+                sh 'your-build-command'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'your-test-command'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'your-deployment-command'
+            }
+        }
     }
     post {
         always {
