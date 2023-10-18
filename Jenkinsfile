@@ -5,7 +5,7 @@ pipeline {
             steps {
                 git(
                     url: "https://github.com/jigar-tecmantras/jenkins.git",
-                    branch: "main",
+                    branch: "master",
                     changelog: true,
                     poll: true
                 )
@@ -20,8 +20,10 @@ pipeline {
         }
         stage("Push to Git Repository") {
             steps {
-                withCredentials([gitUsernamePassword(credentialsId: 'ssbostan-github-token', gitToolName: 'Default')]) {
-                    sh "git push -u origin main"
+                script {
+                    withCredentials([gitUsernamePassword(credentialsId: '96e32ab9-c797-4ebf-9c42-8d1f6eade30c', gitToolName: 'Default')]) {
+                        sh "git push -u origin master"
+                    }
                 }
             }
         }
